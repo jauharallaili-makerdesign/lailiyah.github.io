@@ -1,133 +1,336 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Lailiyah</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lailiyah | Creative Portfolio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-        body {
-            background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1a1a2e);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-            color: #fff;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
 
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0a0a0f;
+  color: #fff;
+  overflow-x: hidden;
+}
 
-        .container {
-            max-width: 800px;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            padding: 50px 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        }
+/* Background gradient animasi */
+body::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 20%, rgba(139, 92, 246, 0.3), transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.3), transparent 50%);
+  animation: move 20s ease infinite;
+  z-index: -1;
+}
 
-        h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            background: linear-gradient(90deg, #ff8a00, #e52e71);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+@keyframes move {
+ 0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(50px, 50px); }
+}
 
-        h2 {
-            font-size: 1.5em;
-            font-weight: 300;
-            margin-bottom: 20px;
-            color: #b8b8b8;
-        }
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
 
-        p {
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            color: #d0d0d0;
-        }
+section {
+  margin-bottom: 120px;
+}
 
-        .skills {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
-        }
+/* Badge */
+.badge {
+  display: inline-block;
+  padding: 8px 20px;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 50px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #a78bfa;
+  backdrop-filter: blur(10px);
+  margin-bottom: 30px;
+  animation: fadeUp 0.8s ease;
+}
 
-        .skill {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px 20px;
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: 0.3s;
-        }
+/* Judul */
+h1 {
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  animation: fadeUp 1s ease 0.2s both;
+}
 
-        .skill:hover {
-            background: rgba(255, 138, 0, 0.3);
-            transform: translateY(-5px);
-        }
+h1 span, .gradient-text {
+  background: linear-gradient(90deg, #8b5cf6, #3b82f6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
-        .contact {
-            margin-top: 30px;
-        }
+h2 {
+  font-size: 40px;
+  margin-bottom: 40px;
+  text-align: center;
+}
 
-        .contact a {
-            color: #ff8a00;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
+p.desc {
+  font-size: 18px;
+  color: #a1a1aa;
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  animation: fadeUp 1s ease 0.4s both;
+}
 
-        .contact a:hover {
-            color: #e52e71;
-        }
+/* Tombol */
+.btn-group {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  animation: fadeUp 1s ease 0.6s both;
+}
 
-        @media (max-width: 600px) {
-            h1 { font-size: 2em; }
-            .container { padding: 30px 20px; }
-        }
-    </style>
+.btn {
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #8b5cf6, #3b82f6);
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Skill Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.skill-card {
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
+}
+
+.skill-card h3 {
+  color: #a78bfa;
+  margin-bottom: 10px;
+}
+
+/* Project Grid */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(139, 92, 246, 0.3);
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background: #1a1a1f;
+}
+
+.project-info {
+  padding: 20px;
+}
+
+.project-info h3 {
+  margin-bottom: 10px;
+}
+
+.project-info p {
+  color: #a1a1aa;
+  font-size: 14px;
+}
+
+/* Contact */
+.contact-box {
+  text-align: center;
+  padding: 60px 30px;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 48px; }
+  h2 { font-size: 32px; }
+  p.desc { font-size: 16px; }
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Halo, Saya Lailiyah</h1>
-        <h2>Web Developer & Designer</h2>
-        <p>
-            Saya suka membuat website yang clean, modern, dan responsif. 
-            Selamat datang di portofolio sederhana saya yang dibuat dengan HTML & CSS murni.
-        </p>
-        
-        <div class="skills">
-            <div class="skill">HTML</div>
-            <div class="skill">CSS</div>
-            <div class="skill">JavaScript</div>
-            <div class="skill">UI/UX</div>
-        </div>
 
-        <div class="contact">
-            <a href="mailto:emailkamu@gmail.com">Email</a>
-            <a href="https://github.com/jauharallaili-makerdesign">GitHub</a>
-            <a href="https://instagram.com/username">Instagram</a>
-        </div>
+<!-- HERO SECTION -->
+<section class="container">
+  <div class="badge">CREATIVE FREELANCER • BASED IN INDONESIA</div>
+  
+  <h1>
+    Hi, I'm<br>
+    <span>Lailiyah</span>
+  </h1>
+  
+  <p class="desc">
+    Graphic designer, photo editor, copywriter, translator, dan video editor. 
+    Siap bantu wujudkan ide kamu jadi visual yang impactful dan estetik.
+  </p>
+  
+  <div class="btn-group">
+    <a href="#projects" class="btn btn-primary">Lihat Karya →</a>
+    <a href="#contact" class="btn btn-secondary">Hubungi Saya</a>
+  </div>
+</section>
+
+<!-- SKILLS SECTION -->
+<section class="container">
+  <h2>What I <span class="gradient-text">Do</span></h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h3>🎨 Design Grafis</h3>
+      <p>Logo, poster, social media design, branding yang modern dan clean.</p>
     </div>
+    <div class="skill-card">
+      <h3>📸 Edit Foto</h3>
+      <p>Retouch, color grading, manipulasi foto dengan hasil natural.</p>
+    </div>
+    <div class="skill-card">
+      <h3>✍️ Copy Writing</h3>
+      <p>Teks marketing, caption, dan konten yang convert dan engaging.</p>
+    </div>
+    <div class="skill-card">
+      <h3>🌐 Terjemahan</h3>
+      <p>Inggris-Indonesia dan sebaliknya, akurat dan mudah dipahami.</p>
+    </div>
+    <div class="skill-card">
+      <h3>🎬 Video Editor</h3>
+      <p>Editing video untuk TikTok, Reels, YouTube dengan pacing dinamis.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS SECTION -->
+<section class="container" id="projects">
+  <h2>Featured <span class="gradient-text">Projects</span></h2>
+  <div class="project-grid">
+    <div class="project-card">
+      <img src="https://via.placeholder.com/400x300/1a1a1f/8b5cf6?text=Project+1" alt="Project 1">
+      <div class="project-info">
+        <h3>Social Media Design</h3>
+        <p>Desain feed Instagram untuk brand lokal. Ganti link gambar di src ya.</p>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="https://via.placeholder.com/400x300/1a1a1f/3b82f6?text=Project+2" alt="Project 2">
+      <div class="project-info">
+        <h3>Video Editing</h3>
+        <p>Reels 30 detik untuk campaign produk skincare. Ganti dengan karya kamu.</p>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="https://via.placeholder.com/400x300/1a1a1f/06b6d4?text=Project+3" alt="Project 3">
+      <div class="project-info">
+        <h3>Logo Design</h3>
+        <p>Branding minimalis untuk UMKM. Upload foto karya kamu ke GitHub.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="container" id="contact">
+  <div class="contact-box">
+    <h2>Let's Work <span class="gradient-text">Together</span></h2>
+    <p class="desc" style="margin: 20px auto;">
+      Punya project atau mau kolaborasi? Yuk ngobrol! 
+    </p>
+    <div class="social-links">
+      <a href="https://wa.me/6288220073942" class="btn btn-primary">WhatsApp</a>
+      <a href="https://instagram.com/jauhar.allaili" class="btn btn-secondary">Instagram</a>
+      <a href="https://tiktok.com/@Latifsr12" class="btn btn-secondary">TikTok</a>
+    </div>
+  </div>
+</section>
+
 </body>
-</html>
+    </html>
